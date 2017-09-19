@@ -20,3 +20,7 @@
 .new-tweet textarea {
   width: 100%;
 }
+
+.new-tweet .overCharLimit {
+  color: red;
+}
