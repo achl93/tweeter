@@ -1,3 +1,5 @@
+// var moment = require('moment');
+
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -14,7 +16,7 @@ function createTweetElement(tweetObj) {
       </header>
       <p class="tweetContent">${escape(tweetObj.content.text)}</p>
       <footer class="footer">
-        <p>${escape(tweetObj.created_at)} days ago</p>
+        <p>${moment(tweetObj.created_at).fromNow()}</p>
         <a href=""><i class="fa fa-heart actions"></i></a>
         <a href=""><i class="fa fa-retweet actions"></i></a>
         <a href=""><i class="fa fa-flag actions"></i></a>
