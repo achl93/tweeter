@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   $('.new-tweet').find('textarea[name="text"]').keydown(function() {
     $(this).closest('form').children('.counter').text(140 - $(this).val().length);
     if ($(this).closest('form').children('.counter').text() < 0) {
