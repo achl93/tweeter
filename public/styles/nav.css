@@ -1,11 +1,12 @@
 #nav-bar {
-  position: sticky;
+  position: fixed;
   height: 80px;
   width: 100%;
   background-color: #00a087;
   color: #e8fdff;
   padding-left: 2em;
   padding-right: 2em;
+  z-index: 9999;
 }
 
 #nav-bar .logo {
@@ -19,4 +20,13 @@
   margin: 10px;
   font-size: 2em;
   line-height: 175%;
+}
+
+#compose {
+  float: right;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #E7FFFF;
+  border: 1px solid black;
 }

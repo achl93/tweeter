@@ -26,6 +26,7 @@ main {
   height: 100%;
   margin: auto;
   padding: 10px;
+  top: 5em;
   background: white;
   position: relative;
 }

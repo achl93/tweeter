@@ -24,3 +24,7 @@
 .new-tweet .overCharLimit {
   color: red;
 }
+
+.closedForm {
+  display: none;
+}

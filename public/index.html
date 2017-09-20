@@ -22,7 +22,6 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    <script type="text/javascript" src="/scripts/submit.js"></script>
   </head>
 
   <body>
@@ -31,11 +30,12 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button id="compose" class="unpressed" type="button">Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="new-tweet" id="composeAnchor">
         <h2>Compose Tweet</h2>
           <form method="POST" action="/tweets">
             <textarea name="text" placeholder="What are you humming about?"></textarea>
@@ -44,20 +44,7 @@
           </form>
       </section>
       <section id="tweets">
-        <!-- <article class="tweet">
-          <header class="header">
-            <img src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png" class="avatar" alt="avatar">
-            <p class="name">Name</p>
-            <p class="handle">@Handle</p>
-          </header>
-          <p class="tweetContent">Tweet</p>
-          <footer class="footer">
-            <p>10 days ago</p>
-            <a href=""><i class="fa fa-heart actions"></i></a>
-            <a href=""><i class="fa fa-retweet actions"></i></a>
-            <a href=""><i class="fa fa-flag actions"></i></a>
-          </footer>
-        </article> -->
+
       </section>
     </main>
 
