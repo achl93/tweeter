@@ -6,7 +6,7 @@ $(function() {
     console.log(tweet);
     $.ajax({
       url: $('form').attr('action'),
-      type: 'POST',
+      method: 'POST',
       data: tweet
     })
   });
