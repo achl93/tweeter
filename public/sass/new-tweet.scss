@@ -1,0 +1,26 @@
+.new-tweet {
+  background-color: #eee;
+  border-radius: 5px;
+  border: 1px solid #9A9A9A;
+  padding: 0 1em 1em 1em;
+  margin: 2em;
+  .counter {
+    text-align: right;
+    float: right;
+    font-style: italic;
+    margin: 3px;    
+  }
+  h2 {
+    border-bottom: 1px solid black;
+  }
+  textarea {
+    width: 100%;
+  }
+  .overCharLimit {
+    color: red;
+  }
+}
+
+.closedForm {
+  display: none;
+}
