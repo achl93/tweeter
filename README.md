@@ -26,3 +26,4 @@ The original forked repository contains the starter code for this project. To co
 - Nodemon (dev use)
 
 ## Screenshots
+![Main screen](https://github.com/achl93/tweeter/blob/master/public/images/1.png "Main screen")
