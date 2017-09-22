@@ -61,16 +61,6 @@ $(function() {
     event.preventDefault();
     const $tweet = $(event.target).parents('article.tweet');
     const id = $tweet.data('id');
-    // const like = $tweet.data('liked') === 'true';
-
-    // $.ajax({
-    //   url: `/tweets/${uniqueId}/like`,
-    //   method: like ? 'DELETE' : 'POST',
-    //   data: { uniqueId: id },
-    //   success: function(data) {
-    //     $tweet.attr('data-liked', !like);
-    //   }
-    // })
 
     if ($tweet.attr('data-liked') === 'false') {
       $.ajax({

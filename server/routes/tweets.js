@@ -64,7 +64,6 @@ module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/:id/like", function(req, res) {
     DataHelpers.getLikes(req.params.id, (err, likes) => {
-      // console.log('likes',likes);
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
