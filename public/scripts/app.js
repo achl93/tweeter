@@ -1,5 +1,3 @@
-// var moment = require('moment');
-
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -8,7 +6,7 @@ function escape(str) {
 
 function createTweetElement(tweetObj) {
   return `
-    <article class="tweet">
+    <article class="tweet" data-liked="false" data-id="${tweetObj._id}">
       <header class="header">
         <img src="${escape(tweetObj.user.avatars.small)}" alt="avatar" class="avatar">
         <p class="name">${escape(tweetObj.user.name)}</p>
@@ -17,9 +15,9 @@ function createTweetElement(tweetObj) {
       <p class="tweetContent">${escape(tweetObj.content.text)}</p>
       <footer class="footer">
         <p>${moment(tweetObj.created_at).fromNow()}</p>
-        <a href=""><i class="fa fa-heart actions"></i></a>
-        <a href=""><i class="fa fa-retweet actions"></i></a>
-        <a href=""><i class="fa fa-flag actions"></i></a>
+        <a href="#" class="like"><i class="fa fa-heart actions">${tweetObj.likes}</i></a>
+        <a href="#"><i class="fa fa-retweet actions"></i></a>
+        <a href="#"><i class="fa fa-flag actions"></i></a>
       </footer>
     </article>
   `
@@ -57,6 +55,61 @@ function loadNewTweet() {
 $(function() {
   loadTweets();
 })
+
+$(function() {
+  $('#tweets').on('click', '.like', function(event){
+    event.preventDefault();
+    const $tweet = $(event.target).parents('article.tweet');
+    const id = $tweet.data('id');
+    // const like = $tweet.data('liked') === 'true';
+
+    // $.ajax({
+    //   url: `/tweets/${uniqueId}/like`,
+    //   method: like ? 'DELETE' : 'POST',
+    //   data: { uniqueId: id },
+    //   success: function(data) {
+    //     $tweet.attr('data-liked', !like);
+    //   }
+    // })
+
+    if ($tweet.attr('data-liked') === 'false') {
+      $.ajax({
+        url: `/tweets/${id}/like`,
+        method: "POST",
+        data: { uniqueId: $('.tweet').data('id') },
+        success: function(data) {
+          $tweet.attr('data-liked', 'true');
+          $(event.target).addClass('liked');
+          $.ajax({
+            url: `/tweets/${id}/like`,
+            method: "GET",
+            success: function(likes) {
+              $(event.target).context.innerHTML = likes.likes;
+            }
+          })
+        }
+      })
+    }
+    else {
+      $.ajax({
+        url: `/tweets/${id}/like`,
+        method: "DELETE",
+        data: { uniqueId: $('.tweet').data('id') },
+        success: function(data) {
+          $tweet.attr('data-liked', 'false');
+          $(event.target).removeClass('liked');
+          $.ajax({
+            url: `/tweets/${id}/like`,
+            method: "GET",
+            success: function(likes) {
+              $(event.target).context.innerHTML = likes.likes;
+            }
+          })
+        }
+      })
+    }
+  })
+});
 
 $(function() {  
   const $button = $('#sendTweet');

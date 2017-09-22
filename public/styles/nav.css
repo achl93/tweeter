@@ -15,11 +15,37 @@
   float: left;
 }
 
+@keyframes flappybird {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(10deg); }
+}
+
+#nav-bar .logo:hover {
+  animation-name: flappybird;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
 #nav-bar .header {
   float: left;
   margin: 10px;
   font-size: 2em;
   line-height: 175%;
+}
+
+@keyframes looselogo {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+#nav-bar .header:hover {
+  animation-name: looselogo;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
 }
 
 #compose {
